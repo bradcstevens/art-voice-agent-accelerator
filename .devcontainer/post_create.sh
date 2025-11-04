@@ -13,6 +13,11 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$bashrc_path"
 # Source the current path
 export PATH="$HOME/.local/bin:$PATH"
 
+echo "📦 Installing system dependencies..."
+# Install PortAudio and other required system libraries
+sudo apt-get update
+sudo apt-get install -y portaudio19-dev
+
 echo "📦 Installing Bicep CLI..."
 # Install Bicep CLI
 curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64

@@ -27,13 +27,13 @@ classifiers = [
     "Topic :: Multimedia :: Sound/Audio :: Speech",
 ]
 
+# Read dependencies from requirements.txt
+dynamic = ["dependencies"]
+
 [project.urls]
 Documentation = "https://azure-samples.github.io/art-voice-agent-accelerator/"
 Source = "https://github.com/Azure-Samples/art-voice-agent-accelerator"
 Tracker = "https://github.com/Azure-Samples/art-voice-agent-accelerator/issues"
-
-# Read dependencies from requirements.txt
-dynamic = ["dependencies"]
 
 [project.optional-dependencies]
 dev = [
@@ -67,11 +67,14 @@ rtagent-server = "apps.rtagent.backend.main:main"
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
-[tool.uv]
-# UV-specific configuration
-dev-dependencies = [
+[dependency-groups]
+# Modern dependency groups configuration (replaces deprecated tool.uv.dev-dependencies)
+dev = [
   "uvicorn[standard]>=0.24.0",
 ]
+
+[tool.uv]
+# UV-specific configuration
 
 [tool.uv.sources]
 # Optional: specify custom package sources if needed

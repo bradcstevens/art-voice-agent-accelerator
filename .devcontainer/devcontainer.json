@@ -86,9 +86,9 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "bash .devcontainer/post_create.sh",
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "vscode",
-	"mounts": [
-		// map host ssh to container
-		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
-	  ]
+	"remoteUser": "vscode"
+	// Uncomment to mount SSH keys if needed (requires ~/.ssh directory to exist on host)
+	// "mounts": [
+	// 	"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	// ]
 }
